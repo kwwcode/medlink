@@ -1,0 +1,21 @@
+<h3>Current Open Requests</h3>
+
+<div>
+<a class="btn btn-warning btn-larg btn-large pull-right" style="color:white" href="/requests/new">Create New Request</a>
+&nbsp;&nbsp;&nbsp;
+<a class="btn btn-info btn-larg btn-large" style="color:white" href="/requests/sendout">Email Requests</a>
+</div>
+<br/><br/><br/>
+<% @requests.each do |request| %>
+  <div class="well">
+    <span class="label label-info">Request for <%= request.patient.full_name %></span><br/><br/>
+    <b>Items:</b><br/><br/>
+    <div>
+      <code>
+      <%= request.items %>
+    </code>
+    </div>
+  </div>
+<% end %>
+
+<br />

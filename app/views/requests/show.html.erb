@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @request.date %>
+</p>
+
+<p>
+  <b>Items:</b>
+  <%= @request.items %>
+</p>
+
+<p>
+  <b>Patient:</b>
+  <%= @request.patient_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @request.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

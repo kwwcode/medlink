@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medlink</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+
+  <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "bootstrap" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+ <div class="masthead">
+        <h3 class="muted">MedLink</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/patients/new">Patients</a></li>
+                <li><a href="/requests">Nurses</a></li>
+                <li><a href="/admin/dashboard">Admin</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div class="container">
+<%= yield %>
+</div>
+</body>
+</html>
