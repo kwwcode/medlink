@@ -1,0 +1,12 @@
+<% requests = Request.find(:all) %>
+Meds Required
+
+<% requests.each do |request| %>
+Patient Name: <%= request.patient.full_name %>
+
+Items Needed:
+
+<%= request.items %>
+
+<% end %>
+
