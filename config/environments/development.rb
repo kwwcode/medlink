@@ -1,4 +1,5 @@
 Medlink::Application.configure do
+      require 'tlsmail'
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -35,6 +36,21 @@ Medlink::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+#config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+ Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => 'gmail.com',
+  :user_name            => 'rhokgambia',
+  :password             => '',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true,
+}
+
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
 
 end

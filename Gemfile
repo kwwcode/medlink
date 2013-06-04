@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
+gem 'tlsmail'
+
 #admin stuff
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 #gem 'rails_admin'

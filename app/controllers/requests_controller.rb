@@ -13,5 +13,7 @@ class RequestsController < InheritedResources::Base
 
   def sendoutemail
   	email = params[:email_address]
+    UserMailer.inventory_email(email).deliver  
+    redirect_to(:action => "index", :notice => 'Email Inventory Sent out') 
   end
 end
