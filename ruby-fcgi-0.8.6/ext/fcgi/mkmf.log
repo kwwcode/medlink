@@ -1,0 +1,22 @@
+have_header: checking for fcgiapp.h... -------------------- no
+
+"gcc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I/root/medlink/ruby-fcgi-0.8.6/ext/fcgi  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    conftest.c -o conftest.i"
+conftest.c:1:21: error: fcgiapp.h: No such file or directory
+checked program was:
+/* begin */
+1: #include <fcgiapp.h>
+/* end */
+
+--------------------
+
+have_header: checking for fastcgi/fcgiapp.h... -------------------- no
+
+"gcc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I/root/medlink/ruby-fcgi-0.8.6/ext/fcgi  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    conftest.c -o conftest.i"
+conftest.c:1:29: error: fastcgi/fcgiapp.h: No such file or directory
+checked program was:
+/* begin */
+1: #include <fastcgi/fcgiapp.h>
+/* end */
+
+--------------------
+

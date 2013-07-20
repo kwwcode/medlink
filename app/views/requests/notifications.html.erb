@@ -1,0 +1,26 @@
+<h3>Notifications</h3>
+
+<% if @with_emails.count > 0 %>
+<h4>The Following Patients will be sent an email notification:</h4>
+
+<ul>
+<% @with_emails.each do |patient| %>
+	<li><%= patient.full_name %> (<%= patient.email %>)</li>
+<% end %>
+</ul>
+<% end %>
+
+<% if @with_phones.count > 0 %>
+
+<h4>The Following Patients have mobile phones only and cannot be contacted until the SMS API is built:</h4>
+
+<ul>
+<% @with_phones.each do |patient| %>
+	<li><%= patient.full_name %> (<%= patient.phone %>)</li>
+<% end %>
+</ul>
+
+<% end %>
+
+<a class="btn btn-success btn-larg btn-large" style="color:white" href="/requests/sendoutnotifications">Send Notifications</a>
+
