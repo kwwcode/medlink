@@ -20,6 +20,10 @@ class Patient < ActiveRecord::Base
   end
 
   def full_name
-  	return self.first_name+" "+self.surname
+  	"#{self.first_name} #{self.surname}"
+  end
+
+  def display_information
+    "#{full_name} #{phone}"
   end
 end

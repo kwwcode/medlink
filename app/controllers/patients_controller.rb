@@ -4,11 +4,16 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    @patients =
+      if params[:type].present? && params[:value].present?
+        PatientSearch.new(params).search
+      else
+        Patient.all
+      end
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @patients }
+      format.html { render partial: 'search_results' }
+      format.json { render json: @patients }
     end
   end
 

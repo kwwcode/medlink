@@ -3,6 +3,7 @@ class Request < ActiveRecord::Base
   has_one :user
   attr_accessible :date, :items, :patient_id, :user_id
   after_initialize :init
+  validates_presence_of :patient_id
 
 
   def init
