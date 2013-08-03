@@ -40,8 +40,8 @@ div.actions input { width: 100%; font-size: 3em; height:3em }
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :date_of_birth, :start_year => 1960, :end_year => 2013 %><br />
-    <%= f.date_select :dob %>
+    <%= f.label :date_of_birth%><br />
+    <%= f.date_select :dob, { start_year: 80.years.ago.year, end_year: Time.now.year } %>
   </div>
   <div class="field">
     <%= f.label :notes %><br />
