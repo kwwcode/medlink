@@ -60,5 +60,12 @@ module Medlink
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.twilio = 
+      {
+        account_sid: 'ACb337f67de75dad4dcbe0d6fb21ef4069', 
+        auth_token: 'a938973539052f4513c74cdc73b1148a',
+        twilio_number: '8044417558',
+      }
   end
 end
