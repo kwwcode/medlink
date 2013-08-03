@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.date_select :dob %>
+    <%= f.date_select :dob, { start_year: 80.years.ago.year, end_year: Time.now.year } %>
   </div>
   <div class="field">
     <%= f.label :notes %><br />
