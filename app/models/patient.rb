@@ -1,6 +1,8 @@
 class Patient < ActiveRecord::Base
   attr_accessible :dob, :surname, :first_name, :notes, :phone, :symptoms
 
+  has_many :requests
+
   def self.find_or_create(phone_number, first_name, last_name)
   	p = Patient.find_by_phone(phone_number)
   	if(!p)
@@ -14,6 +16,10 @@ class Patient < ActiveRecord::Base
   end
 
   def full_name
-  	return self.first_name+" "+self.surname
+  	"#{self.first_name} #{self.surname}"
+  end
+
+  def display_information
+    "#{full_name} #{phone}"
   end
 end

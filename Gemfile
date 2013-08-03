@@ -49,5 +49,8 @@ gem "jquery-rails", "2.3.0"
 # To use debugger
 # gem 'ruby-debug'
 
-
 #gem "devise"
+
+group :test, :development do
+  gem 'pry-rails'
+end

@@ -1,9 +1,4 @@
 Medlink::Application.routes.draw do
-  
-
- 
-
-
   root :to => 'patients#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config

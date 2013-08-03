@@ -1,0 +1,7 @@
+<% if @patients.present? %>
+  <div>
+    <%= select_tag "request[patient_id]", options_from_collection_for_select(@patients, "id", "display_information") %> 
+  </div>
+<% else %>
+  No patients found
+<% end %>
