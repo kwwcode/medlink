@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+    before_filter :authenticate_admin_user!, :except => [:new, :index]
+
   # GET /patients
   # GET /patients.json
   def index
