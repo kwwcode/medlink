@@ -1,4 +1,4 @@
-<% requests = Request.find(:all) %>
+<% requests =  Request.find(:all, :conditions => {:status => "open"}) %>
 Meds Required
 
 <% requests.each do |request| %>
@@ -7,6 +7,8 @@ Patient Name: <%= request.patient.full_name %>
 Items Needed:
 
 <%= request.items %>
+
+<% request.close_request %>
 
 <% end %>
 

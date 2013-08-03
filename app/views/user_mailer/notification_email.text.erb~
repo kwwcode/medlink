@@ -1,0 +1,13 @@
+<% requests =  @patient.requests.find(:all, :conditions => {:status => "open"}) %>
+Hello,
+
+This is to let you know that your following meds have arrived at the health center, and are ready for pickup:
+<% requests.each do |request| %>
+Items Available:
+
+<%= request.items %>
+
+<% request.close_request %>
+
+<% end %>
+

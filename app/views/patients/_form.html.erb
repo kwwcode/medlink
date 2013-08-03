@@ -1,3 +1,11 @@
+<style>
+div.field label { width: 100%; font-size: 3em; font-weight:bold}
+div.field input { width: 100%; font-size: 3em; height:3em }
+div.field select {width: 100%; font-size: 3em; height:3em}
+div.field textarea { width: 100%; font-size: 3em; height:3em }
+div.actions input { width: 100%; font-size: 3em; height:3em }
+</style>
+
 <%= form_for(@patient) do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
@@ -21,14 +29,18 @@
   </div>
   <div class="field">
     <%= f.label :symptoms %><br />
-    <%= f.text_area :symptoms, :rows => 10, :cols => 10 %>
+    <%= f.text_field :symptoms, :rows => 10, :cols => 10 %>
   </div>
   <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>
+    <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
   <div class="field">
-    <%= f.label :date_of_birth %><br />
+    <%= f.label :date_of_birth, :start_year => 1960, :end_year => 2013 %><br />
     <%= f.date_select :dob %>
   </div>
   <div class="field">
@@ -36,6 +48,6 @@
     <%= f.text_area :notes, :rows => 10, :cols => 10 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Request" %>
   </div>
 <% end %>

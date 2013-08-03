@@ -1,5 +1,25 @@
-<h3>Create a New Request</h3>
+<style>
+.masthead ul.nav li {padding-left:1em; height:2em; line-height:100px}
+</style>
+<div class="masthead">
+  <h3 class="muted">MedLink</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+		<li class="active"><a href="/">Home</a></li>
+		<li><a href="/admin/dashboard">Admin</a></li>
+		<li><a href="/admin/logout">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+          </div>
+      </div>
+
+<div class="container">
+<h1>Create a New Request</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', requests_path %>
+</div>

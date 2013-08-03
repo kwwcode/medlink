@@ -1,9 +1,31 @@
-<h3>Send Out Requests to Administrator</h3>
-<p>Use this form to send out an email report to the main hospital. It will send all current open requests, and mark them as "i"
+<style>
+div.field input { font-size: 2em; height: 2em; width:100%;  font-size:4em;height:2em;line-height:100px;}
+.masthead ul.nav li {padding-left:1em; height:2em; line-height:100px}
+</style>
+
+<div class="masthead">
+        <h3 class="muted">MedLink</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/admin/dashboard">Admin</a></li>
+                <li><a href="/admin/logout">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+          </div>
+      </div>
+
+<div class="container">
+<h1 style="line-height:1.2em; font-size:4em">Send Out Requests to Administrator</h1><br/>
+<div style="line-height:1.2em; font-size:4em">Use this form to send out an email request to the main hospital. </div><br/>
 <form action="sendoutemail">
   <div class="field">
-    <b>Email Address of Administrator:</b><br />
+    <h1 style="font-size:4em">Email Address of Administrator:</h1><br />
     <%= text_field :email_address, "" %>
     <%= submit_tag "Send", :class => "btn btn-info" %>
   </div>
 </form>
+</div>

@@ -4,6 +4,9 @@ gem 'rails', '3.2.13'
 
 gem 'tlsmail'
 
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+
 #admin stuff
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 #gem 'rails_admin'

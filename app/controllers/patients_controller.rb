@@ -44,7 +44,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, :notice => 'Patient was successfully created.' }
+        format.html { redirect_to :controller => :patients, :notice => 'Patient was successfully created.' }
         format.json { render :json => @patient, :status => :created, :location => @patient }
       else
         format.html { render :action => "new" }

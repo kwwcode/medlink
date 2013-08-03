@@ -1,3 +1,11 @@
+<style>
+div.field label { width: 100%; font-size: 3em; font-weight:bold }
+div.field input { width: 100%; font-size: 3em; height:3em }
+div.field textarea { width: 100%; font-size: 3em; height:3em }
+div.field select {width: 100%; font-size: 3em; height:3em}
+div.actions input { width: 100%; font-size: 3em; height:3em }
+
+</style>
 <%= form_for(@request) do |f| %>
   <% if @request.errors.any? %>
     <div id="error_explanation">
@@ -16,12 +24,16 @@
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :items %> (e.g. Tylenol 200mg)<br />
-    <%= f.text_area :items, :rows => 10, :cols => 10 %>
+    <%= f.label :items %> <br />
+    <%= text_field_tag :items %>
   </div>
   <div class="field">
     <%= f.label :patient_phone_number %><br />
     <%= number_field_tag :patient_phone_number %>
+  </div>
+    <div class="field">
+    <%= f.label :patient_email %><br />
+    <%= text_field_tag :patient_email %>
   </div>
   <div class="field">
     <%= f.label :patient_first_name %><br />
