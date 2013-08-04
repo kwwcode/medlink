@@ -6,6 +6,8 @@ class Patient < ActiveRecord::Base
 
   has_many :requests, :dependent => :destroy
 
+  before_save :format_phone
+
   def self.find_or_create(phone_number, first_name, last_name, email)
     p = nil 
   	p = !phone_number.blank? ? Patient.find_by_phone(phone_number) : Patient.find_by_email(email)
@@ -25,5 +27,9 @@ class Patient < ActiveRecord::Base
 
   def display_information
     "#{full_name} #{phone}"
+  end
+
+  def format_phone
+    self.phone.gsub!(/[^0-9]/, '')
   end
 end

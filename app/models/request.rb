@@ -20,9 +20,11 @@ class Request < ActiveRecord::Base
   end
 
   def self.send_batch(ids)
+    sent = 0
     ids.each do |request_id|
-      Request.find(request_id).send_notification
+      sent += 1 if Request.find(request_id).send_notification
     end
+    sent
   end
 
   def send_notification
