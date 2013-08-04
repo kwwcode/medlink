@@ -1,5 +1,5 @@
 Medlink::Application.routes.draw do
-  root :to => 'patients#index'
+  root :to => 'home#index'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -13,10 +13,13 @@ devise_scope :admin_user do
   get "/requests/sendoutemail" => "requests#sendoutemail"
     get "/requests/notifications" => "requests#notifications"
   get "/requests/sendoutnotifications" => "requests#sendoutnotifications"
-  resources :requests 
+  resources :requests do
+    post 'send_all', on: :collection
+  end
+
   resources :patients
   resources :patients, :path => 'medlink' 
-resources :patients, :path => 'MedLink'
+  resources :patients, :path => 'MedLink'
 end
 
 

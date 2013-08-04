@@ -4,7 +4,9 @@ class Patient < ActiveRecord::Base
 
   validates :email, :presence => {:unless => Proc.new { |a| a.phone.present? } , :message => "You must enter a phone number or email address"}
 
-  has_many :requests
+  has_many :requests, :dependent => :destroy
+
+  before_save :format_phone
 
   def self.find_or_create(phone_number, first_name, last_name, email)
     p = nil 
@@ -25,5 +27,9 @@ class Patient < ActiveRecord::Base
 
   def display_information
     "#{full_name} #{phone}"
+  end
+
+  def format_phone
+    self.phone.gsub!(/[^0-9]/, '')
   end
 end
