@@ -1,4 +1,4 @@
-class TwilioService
+class SmsService
   def send_sms(patient, message_body)
     if recipient = patient.phone
       client.account.sms.messages.create(

@@ -35,7 +35,7 @@ class Request < ActiveRecord::Base
 
   def send_sms_notification
     body = "Your medicine is ready for pick up. Please visit the Bansang Health Center as soon as possible."
-    TwilioService.new.send_sms(patient, body)
+    SmsService.new.send_sms(patient, body)
   end
 
   def send_email_notification
