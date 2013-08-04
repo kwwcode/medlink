@@ -4,7 +4,7 @@ class Patient < ActiveRecord::Base
 
   validates :email, :presence => {:unless => Proc.new { |a| a.phone.present? } , :message => "You must enter a phone number or email address"}
 
-  has_many :requests
+  has_many :requests, :dependent => :destroy
 
   def self.find_or_create(phone_number, first_name, last_name, email)
     p = nil 

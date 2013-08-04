@@ -21,34 +21,28 @@ div.field input { font-size: 2em; height: 2em; width:100%;  font-size:4em;height
 <div class="container">
 <h1 style="font-size:4em">Notifications</h1><br/><br/>
 
-<% if @with_emails.count > 0 %>
-<div style="font-size:4em;line-height:1.2em">The Following Patients will be sent an email notification:</div>
-<br/><br/>
-<ul>
-<% @with_emails.each do |patient| %>
-	<li style="font-size:3.5em"><b><%= patient.full_name %></b> <br/><br/><br/>(<%= patient.email %>)</li>
+<% if @requests.present? %>
+  <%= form_tag "/requests/send_all" do %>
+    <div style="font-size:4em;line-height:1.2em">The Following Patients will be sent an email notification:</div>
+      <table class='table table-bordered table-striped'>
+        <tr>
+          <th>Request</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Send</th>
+        </tr>
+        <% @requests.each do |r| %>
+          <tr>
+            <td><%= link_to "##{r.id}", request_path(r) %></td>
+            <td><%= r.patient.full_name %></td>
+            <td><%= r.patient.email %></td>
+            <td><%= r.patient.phone %></td>
+            <td><%= check_box_tag "requests[]", r.id %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <%= submit_tag "Send Notifications", class: "btn" %>
+  <% end %>
 <% end %>
-</ul>
-<% end %>
-
-<% if @with_phones.count > 0 %>
-
-<h2>The Following Patients have mobile phones only <br/>and cannot be contacted until the SMS API is built:</h2>
-
-<ul>
-<% @with_phones.each do |patient| %>
-	<li style="font-size:3em"><%= patient.full_name %> (<%= patient.phone %>)</li>
-<% end %>
-</ul>
-
-<% end %>
-<br/><br/>
-<% if @with_emails.count > 0 %>
-<div style="line-height:1.2em; font-size:3em">Text: Your medicine is ready for pick up. Please visit the Bansang Health Center as soon as possible.</div>
-<br/><br/>
-<div align="center">
-<a class="btn btn-success btn-larg btn-large" style="color:white;width:80%; font-size:4em;height:2em;line-height:100px;" href="/requests/sendoutnotifications">Send Notifications</a>
-</div>
-<% end %>
-</div>
-
