@@ -1,8 +1,3 @@
-<style>
-div.field input { font-size: 2em; height: 2em; width:100%;  font-size:4em;height:2em;line-height:100px;}
-.masthead ul.nav li {padding-left:1em; height:2em; line-height:100px}
-</style>
-
 <div class="masthead">
         <h3 class="muted">MedLink</h3>
         <div class="navbar">
@@ -19,11 +14,11 @@ div.field input { font-size: 2em; height: 2em; width:100%;  font-size:4em;height
       </div>
 
 <div class="container">
-<h1 style="line-height:1.2em; font-size:4em">Send Out Requests to Administrator</h1><br/>
-<div style="line-height:1.2em; font-size:4em">Use this form to send out an email request to the main hospital. </div><br/>
+<h2>Send Out Requests to Administrator</h2>
+<h3>Use this form to send out an email request to the main hospital. </h3>
 <form action="sendoutemail">
   <div class="field">
-    <h1 style="font-size:4em">Email Address of Administrator:</h1><br />
+    <h2>Email Address of Administrator:</h2>
     <%= text_field :email_address, "" %>
     <%= submit_tag "Send", :class => "btn btn-info" %>
   </div>

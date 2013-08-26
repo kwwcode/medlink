@@ -1,32 +1,26 @@
-<style>
-.masthead ul.nav li {padding-left:1em; height:2em; line-height:100px}
-</style>
-
 <div class="masthead">
-        <h3 class="muted">MedLink</h3>
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="container">
-              <ul class="nav">
-		<li class="active"><a href="/">Home</a></li>
-                <li><a href="/admin/dashboard">Admin</a></li>
-                <li><a href="/admin/logout">Logout</a></li>
-              </ul>
-            </div>
-          </div>
-	  </div>
+  <h1 class="hidden">Health Worker</h1>
+  <h3 class="muted">MedLink</h3>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <ul class="nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/admin/dashboard">Admin</a></li>
+          <li><a href="/admin/logout">Logout</a></li>
+        </ul>
       </div>
-<br/><br/>
+    </div>
+</div>
+</div>
+
 <div class="container">
 <div align="center">
-<a class="btn btn-warning btn-larg btn-large" style="color:white;;width:80%;  font-size:4em;height:2em;line-height:100px;" href="/requests/new">Create New Request</a>
-<br/><br/>
-<a class="btn btn-info btn-larg btn-large" style="color:white;;width:80%;  font-size:4em;height:2em;line-height:100px;" href="/requests/sendout">Submit Requests</a>
-<br/><br/>
-<a class="btn btn-success btn-larg btn-large" style="color:white;;width:80%;  font-size:4em;height:2em;line-height:100px;" href="/requests/notifications">Send Notifications</a>
+<a class="btn btn-warning btn-large" href="/requests/new">Create New Request</a>
+<a class="btn btn-info btn-large" href="/requests/sendout">Submit Requests</a>
+<a class="btn btn-success btn-large" href="/requests/notifications">Send Notifications</a>
 </div>
-<br/><br/><br/>
-<h1 style="font-size:4em">New</h1>
+<h2>New</h2>
 
 <% @requests.each do |request| %>
   <div class="well"  style="font-size:4em;height:4em">
@@ -40,32 +34,28 @@
   </div>
 <% end %>
 
-<br /><hr noshade/>
-<h1 style="font-size:4em">Requested</h1>
+<hr noshade/>
+<h3>Requested</h3>
 
 <% @requested.each do |request| %>
-  <div class="well"  style="font-size:4em;height:4em">
-    <span style="font-size:1em">Request for <%= request.patient.full_name %></span><br/><br/><br/>
-    <b>Items:</b><br/><br/><br/>
-    <div>
-      <b style="font-size:1em; color:red">
+  <div class="well request">
+    <h4>Request for <%= request.patient.full_name %></h4>
+    <h5>Items:</h5>
+    <div class="request-item">
       <%= request.items %>
-    </b>
     </div>
   </div>
 <% end %>
 
-<br /><hr noshade/>
-<h1 style="font-size:4em">Delivered</h1>
+<hr noshade/>
+<h3>Delivered</h3>
 
 <% @delivered.reverse.each do |request| %>
-  <div class="well" style="font-size:4em;height:4em">
-    <span style="font-size:1em">Request for <%= request.patient.full_name %></span><br/><br/><br/>
-    <b>Items:</b><br/><br/><br/><br/>
-    <div>
-      <b style="font-size:1em; color:red">
+  <div class="well request">
+    <h4>Request for <%= request.patient.full_name %></h4>
+    <h5>Items:</h5>
+    <div class="request-item">
       <%= request.items %>
-    </b>
     </div>
   </div>
 <% end %>

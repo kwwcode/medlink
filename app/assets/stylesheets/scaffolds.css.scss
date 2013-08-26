@@ -39,10 +39,12 @@ div {
   color: green;
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+.field_with_errors label {
+  color: red;
+}
+
+.field_with_errors input {
+  border: 2px solid red;
 }
 
 #error_explanation {
@@ -63,7 +65,50 @@ div {
     color: #fff;
   }
   ul li {
-    font-size: 12px;
+    font-size: 1.5em;
     list-style: square;
   }
+}
+
+.btn.btn-large {
+    width: 90%;
+    font-size: 3em;
+    line-height: 1em;
+    margin-bottom: .7em;
+    padding: .5em;
+}
+
+.container h2 {
+    font-size: 3em;
+    line-height: 1.5em;
+    margin-bottom: .5em;
+}
+
+.container h3 {
+    font-weight: 300;
+    font-size: 2em;
+}
+
+.container h4 {
+    font-weight: 300;
+    font-size: 1.5em;
+}
+
+.container h5 {
+    font-size: 1em;
+}
+
+.request-item {
+    font-weight: 600;
+    font-size: 1em;
+    color: red;
+}
+
+.navbar {
+  margin-bottom: 2em;
+}
+
+.nav li {
+    font-size: 3em;
+    line-height: 1em;
 }
